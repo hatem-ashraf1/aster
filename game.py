@@ -173,3 +173,15 @@ class Game:
         self.player.health = min(self.player.max_health, previous_health + 20)
         self.player.damage = previous_damage
         self.player.speed = previous_speed
+
+
+def main():
+    pygame.init()
+    try:
+        Game().run()
+    finally:
+        pygame.quit()
+
+
+if __name__ == "__main__":
+    main()
