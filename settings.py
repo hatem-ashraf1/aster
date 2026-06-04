@@ -1,19 +1,46 @@
-"""
-TODO:
+SCREEN_WIDTH = 960
+SCREEN_HEIGHT = 640
+FPS = 60
+TILE_SIZE = 32
 
-Store all global configuration values.
+MAP_WIDTH = SCREEN_WIDTH // TILE_SIZE
+MAP_HEIGHT = (SCREEN_HEIGHT - 64) // TILE_SIZE
+HUD_HEIGHT = 64
 
-Include:
+PLAYER_HEALTH = 100
+PLAYER_SPEED = 210
+PLAYER_DAMAGE = 25
+PLAYER_FIRE_COOLDOWN = 0.25
 
-Screen width and height
-FPS
-Tile size
-Player default stats
-Enemy default stats
-Projectile settings
-Colors
-Difficulty scaling values
+ENEMY_HEALTH = 45
+ENEMY_SPEED = 95
+ENEMY_DAMAGE = 12
+ENEMY_ATTACK_RANGE = 34
+ENEMY_ATTACK_COOLDOWN = 0.8
+ENEMY_BASE_COUNT = 5
 
-No game logic should be implemented here.
-Only constants and configuration values.
-"""
+PROJECTILE_SPEED = 520
+PROJECTILE_RADIUS = 5
+PROJECTILE_LIFETIME = 1.4
+
+ITEM_SIZE = 18
+SAVE_FILE = "savegame.json"
+
+MAX_LEVEL = 5
+ENEMY_COUNT_PER_LEVEL = 2
+ENEMY_HEALTH_PER_LEVEL = 10
+ENEMY_SPEED_PER_LEVEL = 6
+
+BLACK = (12, 14, 18)
+WHITE = (235, 239, 245)
+GRAY = (82, 91, 105)
+DARK_GRAY = (32, 36, 44)
+WALL_COLOR = (42, 50, 62)
+FLOOR_COLOR = (137, 129, 111)
+EXIT_COLOR = (73, 178, 107)
+PLAYER_COLOR = (78, 167, 255)
+ENEMY_COLOR = (220, 80, 78)
+PROJECTILE_COLOR = (252, 213, 91)
+POTION_COLOR = (230, 79, 118)
+BOOST_COLOR = (151, 114, 255)
+KEY_COLOR = (245, 190, 75)

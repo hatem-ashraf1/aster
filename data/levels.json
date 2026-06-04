@@ -1,0 +1,5 @@
+{
+  "mode": "procedural",
+  "max_level": 5,
+  "notes": "Levels are generated from deterministic seeds based on the level number."
+}

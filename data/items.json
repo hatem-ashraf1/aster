@@ -1,0 +1,26 @@
+[
+  {
+    "id": "health_potion",
+    "name": "Health Potion",
+    "description": "Restores 30 health when collected.",
+    "stackable": true
+  },
+  {
+    "id": "damage_boost",
+    "name": "Damage Boost",
+    "description": "Permanently increases player projectile damage.",
+    "stackable": true
+  },
+  {
+    "id": "speed_boost",
+    "name": "Speed Boost",
+    "description": "Permanently increases player movement speed.",
+    "stackable": true
+  },
+  {
+    "id": "key",
+    "name": "Key",
+    "description": "A collectible dungeon key.",
+    "stackable": true
+  }
+]

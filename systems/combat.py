@@ -1,15 +1,12 @@
-"""
-TODO:
+class CombatSystem:
+    def apply_damage(self, target, amount):
+        target.health = max(0, target.health - amount)
+        return target.health <= 0
 
-Implement combat calculations.
-
-Responsibilities:
-
-Apply damage
-Handle attack cooldowns
-Resolve projectile damage
-Resolve enemy attacks
-Handle entity death events
-
-Combat calculations should be separated from rendering and movement logic.
-"""
+    def enemy_attack(self, enemy, player, dt):
+        enemy.attack_timer = max(0, enemy.attack_timer - dt)
+        if enemy.attack_timer == 0 and enemy.can_attack(player):
+            self.apply_damage(player, enemy.damage)
+            enemy.attack_timer = enemy.attack_cooldown
+            return True
+        return False

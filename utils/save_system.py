@@ -1,22 +1,32 @@
-"""
-TODO:
+import json
+from pathlib import Path
 
-Implement save and load functionality.
+import pygame
 
-Save:
+from settings import SAVE_FILE
 
-Current level
-Player health
-Player position
-Difficulty level
-Inventory contents
 
-Load:
+class SaveSystem:
+    def __init__(self, path=SAVE_FILE):
+        self.path = Path(path)
 
-Restore saved progress
-Recreate necessary game objects
+    def save(self, game):
+        data = {
+            "level": game.level_manager.level_number,
+            "player_health": game.player.health,
+            "player_position": [game.player.pos.x, game.player.pos.y],
+            "inventory": game.inventory.to_dict(),
+        }
+        self.path.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
-Use JSON serialization.
+    def load(self):
+        if not self.path.exists():
+            return None
+        return json.loads(self.path.read_text(encoding="utf-8"))
 
-The save system should be independent from rendering and gameplay logic.
-"""
+    @staticmethod
+    def restore_player(player, data):
+        player.health = min(player.max_health, int(data.get("player_health", player.max_health)))
+        if "player_position" in data:
+            player.pos = pygame.Vector2(data["player_position"])
+            player.rect.center = player.pos

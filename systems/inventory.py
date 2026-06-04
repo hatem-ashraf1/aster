@@ -1,38 +1,32 @@
-"""
-TODO:
+class Inventory:
+    def __init__(self):
+        self.items = {}
 
-Implement player inventory management.
+    def add_item(self, item_id, amount=1):
+        self.items[item_id] = self.items.get(item_id, 0) + amount
 
-Responsibilities:
+    def remove_item(self, item_id, amount=1):
+        if self.items.get(item_id, 0) < amount:
+            return False
+        self.items[item_id] -= amount
+        if self.items[item_id] <= 0:
+            del self.items[item_id]
+        return True
 
-- Store collected items
-- Add items to inventory
-- Remove items from inventory
-- Search for items
-- Count collected items
+    def has_item(self, item_id):
+        return self.items.get(item_id, 0) > 0
 
-Inventory Rules:
+    def get_item_count(self, item_id):
+        return self.items.get(item_id, 0)
 
-- Items should have unique identifiers
-- Inventory should support stacking when appropriate
-- Inventory data must be serializable for saving/loading
+    def count(self):
+        return sum(self.items.values())
 
-Possible collectible items:
+    def clear(self):
+        self.items.clear()
 
-- Health Potion
-- Damage Boost
-- Speed Boost
-- Key
+    def to_dict(self):
+        return dict(self.items)
 
-Provide helper methods such as:
-
-- add_item()
-- remove_item()
-- has_item()
-- get_item_count()
-- clear()
-
-The inventory system should notify the HUD whenever inventory contents change.
-
-The save system should serialize inventory contents and restore them correctly.
-"""
+    def from_dict(self, data):
+        self.items = {str(key): int(value) for key, value in data.items()}

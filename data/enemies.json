@@ -1,0 +1,9 @@
+[
+  {
+    "id": "chaser",
+    "name": "Chaser",
+    "health": 45,
+    "speed": 95,
+    "damage": 12
+  }
+]

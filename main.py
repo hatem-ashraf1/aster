@@ -1,15 +1,15 @@
-"""
-TODO:
+import pygame
 
-This file is the application's entry point.
+from game import Game
 
-Initialize pygame.
 
-Create the Game object.
+def main():
+    pygame.init()
+    try:
+        Game().run()
+    finally:
+        pygame.quit()
 
-Run the main game loop.
 
-Handle clean shutdown when the user closes the window.
-
-This file should contain as little game logic as possible.
-"""
+if __name__ == "__main__":
+    main()

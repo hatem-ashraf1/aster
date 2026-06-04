@@ -1,14 +1,17 @@
-"""
-TODO:
+import pygame
 
-Implement asset management.
 
-Responsibilities:
+class AssetManager:
+    def __init__(self):
+        self.images = {}
+        self.sounds = {}
 
-Load images
-Load sounds
-Cache loaded assets
-Prevent duplicate loading
+    def image(self, path):
+        if path not in self.images:
+            self.images[path] = pygame.image.load(path).convert_alpha()
+        return self.images[path]
 
-The rest of the project should request assets through this module instead of loading files directly.
-"""
+    def sound(self, path):
+        if path not in self.sounds:
+            self.sounds[path] = pygame.mixer.Sound(path)
+        return self.sounds[path]
